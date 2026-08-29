@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-gray-900 font-sans antialiased;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400;
+}
+
+/* Animation delays for staggered animations */
+.animation-delay-100 { animation-delay: 100ms; }
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-300 { animation-delay: 300ms; }
+.animation-delay-400 { animation-delay: 400ms; }
+.animation-delay-500 { animation-delay: 500ms; }
+
+/* Bar animation */
+@keyframes barGrowAnimation {
+  from { width: 0%; }
+  to { width: var(--bar-width); }
+}
+
+.animate-bar {
+  animation: barGrowAnimation 0.8s ease-out forwards;
+}
+
+/* Gradient backgrounds */
+.gradient-primary {
+  background: linear-gradient(135deg, #185FA5 0%, #1e70b8 100%);
+}
+
+.gradient-hero {
+  background: linear-gradient(135deg, #185FA5 0%, #2d7fc7 50%, #185FA5 100%);
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Drop zone styling */
+.drop-zone {
+  @apply border-2 border-dashed border-gray-300 rounded-xl p-8 text-center cursor-pointer transition-all duration-200;
+}
+
+.drop-zone:hover {
+  @apply border-primary-500 bg-primary-50;
+}
+
+.drop-zone.active {
+  @apply border-primary-500 bg-primary-50 scale-[1.02];
+}
+
+/* Focus styles */
+input:focus, select:focus, textarea:focus {
+  @apply outline-none ring-2 ring-primary-500/30 border-primary-500;
+}
+
+/* Button hover effects */
+.btn-hover-lift {
+  @apply transition-all duration-200;
+}
+
+.btn-hover-lift:hover {
+  @apply -translate-y-0.5 shadow-lg;
+}
+
+/* Password strength meter */
+.strength-meter {
+  @apply h-1 rounded-full transition-all duration-300;
+}
+
+/* Table row hover */
+.table-row-hover:hover {
+  @apply bg-gray-50;
+}
+
+/* Card hover effects */
+.card-hover {
+  @apply transition-all duration-200;
+}
+
+.card-hover:hover {
+  @apply shadow-lg -translate-y-0.5;
+}
+
+/* Sidebar transition */
+.sidebar-transition {
+  transition: width 0.3s ease, transform 0.3s ease;
+}
+
+/* Page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Loading skeleton */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
